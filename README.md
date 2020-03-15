@@ -1,2 +1,2 @@
 # host-app
-Hosting nodejs serverless angular application that targets to deployed in aws elasticbeanstalk.
+Hosting nodejs serverless angular application that will be deployed in aws elasticbeanstalk.
