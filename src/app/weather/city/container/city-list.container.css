@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+  vertical-align: top;
+  align-items: flex-start;
+  border-width: 2pt;
+  border-color: black;
+  border-style: solid;
+}
+
+.example-card {
+  max-width: 400px;
+  height: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+div {
+  margin-left: 20px;
+}

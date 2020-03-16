@@ -1,0 +1,33 @@
+<form class="example-form">
+  Search city&nbsp;
+  <input placeholder="Search with at least 3 letters..." [formControl]="cityCtrl">
+</form>
+<div>&nbsp;</div>
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="cities">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name of the city</th>
+      <td mat-cell *matCellDef="let element"> <a href="#">{{element.name}}</a> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="countryName">
+      <th mat-header-cell *matHeaderCellDef> Country </th>
+      <td mat-cell *matCellDef="let element" matTooltip=`Longtitude`> {{element.countryName}} </td>
+    </ng-container>
+
+     <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element"> <img src={{getFlags(element.country)}} /> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div>&nbsp;</div>

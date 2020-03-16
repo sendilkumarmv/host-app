@@ -1,0 +1,5 @@
+<div>
+    <app-city-list [cities]="(cities$|async)" [isLoading]="(isLoading$|async)"
+    (onAutoComplete)="handleAutoComplete($event)"></app-city-list>
+    </div>
+

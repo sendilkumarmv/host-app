@@ -1,0 +1,15 @@
+input {
+  width: 300px;
+}
+
+table {
+  width: 540px;
+}
+.example-container {
+  width: 550px;
+  height: 400px;
+  overflow: auto;
+}
+mat-progress-bar {
+  width: 550px;
+}

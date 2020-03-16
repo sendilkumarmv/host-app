@@ -1,0 +1,63 @@
+.widget {
+  width: 260px;
+  border: 1px solid rgb(86, 119, 119);;
+  padding: 0px;
+}
+.widget-right {
+  width: 900px;
+  border: 1px solid rgb(86, 119, 119);
+  padding: 10px;
+}
+.widget-info {
+  width: 230px;
+  border: 0px solid rgb(86, 119, 119);
+  padding: 4px;
+  margin-right: 25px;
+  margin-left:25px
+}
+.getLocation {
+  border: 1px solid lightgray;
+  border-right: 0px;
+  border-left: 0px;
+  height: 150px;
+  background-color: whitesmoke;
+}
+h3 {
+  font-family: sans-serif;
+  font-size: large;
+  padding-left: 5px;
+}
+table {
+  width:  258px;
+}
+table, th, td {
+  border: 1px solid lightgray;
+  border-left: 0px;
+  border-right: 0px;
+  padding-left: 5px;
+}
+td.widget-caption {
+  width: 100px;
+}
+tr:nth-child(even) {background-color: whitesmoke}
+tr:nth-child(odd) {background-color: lightyellow}
+.content {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.page-title {
+  font-family: sans-serif;
+  font-size: larger;
+  padding-left: 15px;
+  color: orange;
+}
+
+.mat-tab-group {
+  margin-bottom: 48px;
+  font-family: sans-serif;
+}
+
+.timeInfo {
+  margin-left: 5px;
+}
+

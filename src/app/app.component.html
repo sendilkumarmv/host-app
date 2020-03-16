@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgb(132, 230, 230);">
+  <a class="navbar-brand" href=""><img src="/assets/logo.png" width="32" height="32" alt="">&nbsp;&nbsp;<span class="logoText">Weather</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item active">
+        <a class="nav-link" href="/weather/citylist">City List</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/status">Health</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/contacts">Contacts</a>
+      </li>
+      <li>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-4" type="search" placeholder="Search city..." aria-label="Search">
+        <mat-progress-spinner mode="indeterminate" diameter="30" *ngIf="(isLoading$|async)"></mat-progress-spinner>
+      </form>
+      </li>
+  </ul>
+
+  </div>
+   <app-tiny-info></app-tiny-info>
+</nav>
+<router-outlet></router-outlet>

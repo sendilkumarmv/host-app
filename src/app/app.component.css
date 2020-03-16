@@ -1,0 +1,30 @@
+router-outlet {
+  margin-left: 20px;
+  padding-left: 30px;
+}
+
+.logoText {
+  color:orange;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+/* navbar navbar-expand-lg navbar-light */
+.bg-light {
+ background-color: rgb(132, 230, 230);
+}
+
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
