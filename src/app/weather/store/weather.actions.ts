@@ -8,7 +8,7 @@ export enum WeatherActionTypes {
   GetCountriesSuccess = '[Weather] Get Countries Success',
   GetCurrentLocation = '[Weather] Get Current Location',
   GetCurrentLocationWeatherSuccess = '[Weather] Get Current Location Weather Success',
-  GeneralError ="[Weather] General Error"
+  GeneralError = "[Weather] General Error"
 }
 
 export class GetCountriesAction implements Action {
@@ -20,7 +20,6 @@ export class GetCountriesSuccessAction implements Action {
   readonly type: string = WeatherActionTypes.GetCountriesSuccess;
   constructor(public payLoad: City[]) {}
 }
-
 
 export class GeneralErrorAction implements Action {
   readonly type: string = WeatherActionTypes.GeneralError;

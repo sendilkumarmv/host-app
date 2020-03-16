@@ -6,6 +6,7 @@ export interface IWeatherState {
   match: string;
   isLoading: boolean;
   error: string;
+  data: any;
 }
 export interface IAppState {
   weatherState: IWeatherState

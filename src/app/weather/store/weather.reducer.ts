@@ -19,7 +19,8 @@ const initialWeatherState: IWeatherState = {
   cities: [city],
   match:'',
   isLoading: false,
-  error:''
+  error:'',
+  data: null
 }
 const initialAppState: IAppState = {
   weatherState: initialWeatherState,
@@ -55,6 +56,16 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         cities: [],
         isLoading: false
       };
+    }
+
+    case WeatherActionTypes.GetCurrentLocationWeatherSuccess: {
+      return {
+        ...state,
+        error: '',
+        cities: [],
+        isLoading: false,
+        data: action.payLoad
+      }
     }
 
     case WeatherActionTypes.GeneralError: {
