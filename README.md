@@ -1,10 +1,15 @@
+# Active Branch : CurrentLocation
+
 # HostApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.  Solution is ready with aws Elasticbeanstalk deployment settings.
+
+# Local Api
+Clone and setup local for Api https://github.com/sendilkumarmv/weather-app. Asp.NET Core 3.1 Web API application provides all api endpoint. Solution is ready with aws Elasticbeanstalk deployment settings.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. Update Local Api app whitelistings in case this runs in different port.
 
 ## Code scaffolding
 
