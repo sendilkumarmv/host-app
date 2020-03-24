@@ -19,11 +19,19 @@ import { AllMaterialModule } from './all-material.module';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { API_BASE_URL } from './general';
 import { HourlyComoponent } from './current/hourly/hourly.component';
+import { CurrLocationComponent } from './current/component/curr-location.component';
+import { CurrLocationContainer } from './current/container/curr-location.container';
+import { TinyComponent } from './widget/tiny.component';
+import { OpenWeatherService } from './services/ow.service';
 
 @NgModule({
   declarations: [
     CityListComponent,
-    CityListContainer
+    CityListContainer,
+    CurrLocationComponent,
+    CurrLocationContainer,
+    HourlyComoponent,
+    TinyComponent
   ],
   imports: [
     CommonModule,
@@ -41,6 +49,7 @@ import { HourlyComoponent } from './current/hourly/hourly.component';
 
   providers:[
     ApiService,
+    OpenWeatherService,
     { provide: API_BASE_URL, useValue: 'http://localhost:59377'}
   ]
 })

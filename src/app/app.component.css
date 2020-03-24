@@ -1,17 +1,12 @@
-router-outlet {
-  margin-left: 20px;
-  padding-left: 30px;
+
+body {
+  background-color: aliceblue !important;
 }
 
 .logoText {
-  color:orange;
+  color:orangered;
   font-family: sans-serif;
   font-weight: bold;
-}
-
-/* navbar navbar-expand-lg navbar-light */
-.bg-light {
- background-color: rgb(132, 230, 230);
 }
 
 .example-h2 {
@@ -27,4 +22,12 @@ router-outlet {
 
 .example-margin {
   margin: 0 10px;
+}
+
+.nav-link {
+  font-family: Helvetica Neue,Roboto,Arial,Droid Sans,sans-serif;;
+}
+
+.bg-light {
+  background-color: rgb(216, 224, 231) !important;
 }

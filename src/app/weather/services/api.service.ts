@@ -13,7 +13,9 @@ export class ApiService {
     return this.httpClient.get(serviceUrl);
   }
 
-
-
+  getWeatherByCoordinates(coordinates: Coordinates) {
+    const serviceUrl = `${this.baseUrl}/api/weatherforecast/getweather/loc/${coordinates.lon}/${coordinates.lat}`;
+    return this.httpClient.get(serviceUrl);
+  }
 
 }

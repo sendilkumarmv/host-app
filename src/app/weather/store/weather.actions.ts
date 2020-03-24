@@ -6,8 +6,12 @@ import { Coordinates } from '../models/Coordinates.model';
 export enum WeatherActionTypes {
   GetCountries = '[Weather] Get Countries',
   GetCountriesSuccess = '[Weather] Get Countries Success',
-  GetCurrentLocation = '[Weather] Get Current Location',
+
+  GetCurrentLocationSuccess = '[Weather] Get Current Location Success',
+
+  GetCurrentLocationWeather ='[Weather] Get Current Location Weather',
   GetCurrentLocationWeatherSuccess = '[Weather] Get Current Location Weather Success',
+
   GeneralError = "[Weather] General Error"
 }
 
@@ -21,15 +25,9 @@ export class GetCountriesSuccessAction implements Action {
   constructor(public payLoad: City[]) {}
 }
 
-export class GeneralErrorAction implements Action {
-  readonly type: string = WeatherActionTypes.GeneralError;
-  constructor(public payLoad: string) {
 
-  }
-}
-
-export class GetCurrentLocationAction implements Action {
-  readonly type: string = WeatherActionTypes.GetCurrentLocation;
+export class GetCurrentLocationSuccessAction implements Action {
+  readonly type: string = WeatherActionTypes.GetCurrentLocationSuccess;
   constructor(public payLoad: Coordinates) {
   }
 }
@@ -40,8 +38,17 @@ export class GetCurrentLocationWeatherSuccessAction implements Action {
   }
 }
 
+
+export class GeneralErrorAction implements Action {
+  readonly type: string = WeatherActionTypes.GeneralError;
+  constructor(public payLoad: string) {
+
+  }
+}
+
+
 export type WeatherActions = GetCountriesAction
 | GetCountriesSuccessAction
-| GetCurrentLocationAction
+| GetCurrentLocationSuccessAction
 | GetCurrentLocationWeatherSuccessAction
 | GeneralErrorAction ;

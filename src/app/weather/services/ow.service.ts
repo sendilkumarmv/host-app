@@ -17,7 +17,7 @@ export class OpenWeatherService {
   }
 
   getCurrentByLocation(coord: Coordinates) {
-    let url = `lat=${coord.lat}&lon=${coord.lon}&appid=${this.apiKey}`;
+    let url = `${this.getWeatherByLocation}lat=${coord.lat}&lon=${coord.lon}&appid=${this.apiKey}`;
     return this.httpClient.get(url);
   }
 }

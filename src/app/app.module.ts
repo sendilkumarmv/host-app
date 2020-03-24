@@ -12,7 +12,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { StatusComponent } from './status/status.component';
 import { AllMaterialModule } from './weather/all-material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { CurrLocationComponent } from './weather/current/curr-location.component';
+import { CurrLocationComponent } from './weather/current/component/curr-location.component';
 import { CommonModule } from '@angular/common';
 import { HourlyComoponent } from './weather/current/hourly/hourly.component';
 import { TinyComponent } from './weather/widget/tiny.component';
@@ -22,9 +22,6 @@ import { TinyComponent } from './weather/widget/tiny.component';
     AppComponent,
     ContactsComponent,
     StatusComponent,
-    CurrLocationComponent,
-    HourlyComoponent,
-    TinyComponent
   ],
   imports: [
     BrowserModule,

@@ -19,3 +19,8 @@ export const selectError = createSelector(
   selectFeature,
   (state: IWeatherState) => state?.error
 )
+
+export const selectWeatherData = createSelector(
+  selectFeature,
+  (state: IWeatherState) => state?.data
+)

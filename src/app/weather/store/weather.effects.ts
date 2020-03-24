@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { switchMap, map, catchError } from 'rxjs/operators/';
-import { WeatherActionTypes, GetCountriesAction, GetCountriesSuccessAction, GeneralErrorAction, GetCurrentLocationAction, GetCurrentLocationWeatherSuccessAction } from './weather.actions';
+import {
+  WeatherActionTypes,
+  GetCountriesAction,
+  GetCountriesSuccessAction,
+  GeneralErrorAction,
+  GetCurrentLocationSuccessAction,
+  GetCurrentLocationWeatherSuccessAction } from './weather.actions';
 import { ApiService } from '../services/api.service';
 import { City } from '../models/city.model';
 import { of } from 'rxjs';
@@ -34,11 +40,13 @@ export class WeatherEffects {
     })
   )
 
+  @Effect()
   selectLocatgion$ = this.actions.pipe(
-    ofType<GetCurrentLocationAction>(WeatherActionTypes.GetCurrentLocation),
+    ofType<GetCurrentLocationSuccessAction>(WeatherActionTypes.GetCurrentLocationSuccess),
     switchMap( (action) => {
-      return this.owApiService.getCurrentByLocation(action.payLoad).pipe(
+      return this.apiService.getWeatherByCoordinates(action.payLoad).pipe(
         map( (result) => {
+            console.log(result);
             return new GetCurrentLocationWeatherSuccessAction(result);
         }),
         catchError( (error: HttpErrorResponse) => {

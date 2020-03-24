@@ -48,7 +48,7 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
       }
     }
 
-    case WeatherActionTypes.GetCurrentLocation: {
+    case WeatherActionTypes.GetCurrentLocationSuccess: {
       return {
         ...state,
         currentLocation: action.payLoad,
