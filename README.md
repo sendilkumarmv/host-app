@@ -25,4 +25,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Create node server application with server.js and copy dist directory. Run the server app `node server.js`. Change port appropriatly or it will run in default 5000. Update the whitelisting of Local Api app.
 
+## In-Progress status
 
+<img src="https://github.com/sendilkumarmv/host-app/blob/CurrentLocation/01_dashboard.gif"
+     alt="Dashboard"
+     style="float: left; margin-right: 10px;" />
