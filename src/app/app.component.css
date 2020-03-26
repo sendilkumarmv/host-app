@@ -1,6 +1,6 @@
 
 body {
-  background-color: aliceblue !important;
+  background-color: rgb(194, 203, 211) !important;
 }
 
 .logoText {
@@ -30,4 +30,8 @@ body {
 
 .bg-light {
   background-color: rgb(216, 224, 231) !important;
+}
+
+.appContainer {
+  background-color: aquamarine;
 }

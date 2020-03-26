@@ -20,7 +20,8 @@ const initialWeatherState: IWeatherState = {
   match:'',
   isLoading: false,
   error:'',
-  data: null
+  data: null,
+  errorOccured: false
 }
 const initialAppState: IAppState = {
   weatherState: initialWeatherState,
@@ -73,6 +74,7 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         ...state,
         isLoading: false,
         error: action.payLoad,
+        errorOccured: true,
         cities: []
       }
     }

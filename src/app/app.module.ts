@@ -14,8 +14,6 @@ import { AllMaterialModule } from './weather/all-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrLocationComponent } from './weather/current/component/curr-location.component';
 import { CommonModule } from '@angular/common';
-import { HourlyComoponent } from './weather/current/hourly/hourly.component';
-import { TinyComponent } from './weather/widget/tiny.component';
 
 @NgModule({
   declarations: [

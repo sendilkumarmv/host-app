@@ -12,7 +12,7 @@ import { selectLoadingStatus } from './weather/store/weather.selectors';
 })
 export class AppComponent implements OnInit {
 
-  title = 'host-app';
+  title = 'Weather Dashboard';
   public isLoading$: Observable<boolean>;
   constructor(private store: Store<IAppState>) {
 

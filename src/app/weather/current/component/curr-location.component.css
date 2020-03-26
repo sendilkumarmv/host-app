@@ -1,13 +1,13 @@
 .widget {
   width: 260px;
-  border: 1px solid rgb(86, 119, 119);;
-  border-radius: 5pt;
+  border: 1px solid rgb(231, 238, 238);;
+  border-radius: 0pt;
   padding: 0px;
 }
 .widget-right {
   width: 900px;
-  border: 1px solid rgb(86, 119, 119);
-  border-radius: 5pt;
+  border: 1px solid rgb(231, 238, 238);
+  border-radius: 0pt;
   padding: 10px;
 }
 .widget-info {
@@ -47,6 +47,7 @@ tr:nth-child(odd) {background-color: lightyellow}
 .content {
   margin-left: 100px;
   margin-right: 100px;
+  margin-top: 25px;
 }
 .page-title {
   font-family: sans-serif;

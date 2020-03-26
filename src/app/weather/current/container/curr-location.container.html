@@ -1,1 +1,3 @@
-<app-curr-location [data] ="data$"></app-curr-location>
+<div>
+<app-curr-location *ngIf="!(errorStatus$|async)" [data] ="data$"></app-curr-location>
+</div>

@@ -18,11 +18,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AllMaterialModule } from './all-material.module';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { API_BASE_URL } from './general';
-import { HourlyComoponent } from './current/hourly/hourly.component';
 import { CurrLocationComponent } from './current/component/curr-location.component';
 import { CurrLocationContainer } from './current/container/curr-location.container';
 import { TinyComponent } from './widget/tiny.component';
 import { OpenWeatherService } from './services/ow.service';
+import { HourlyComoponent } from './hourly/component/hourly.component';
+import { HourlyContainer } from './hourly/container/hourly.container';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { OpenWeatherService } from './services/ow.service';
     CurrLocationComponent,
     CurrLocationContainer,
     HourlyComoponent,
+    HourlyContainer,
     TinyComponent
   ],
   imports: [

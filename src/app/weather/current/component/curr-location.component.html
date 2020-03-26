@@ -3,7 +3,7 @@
 <div class="row">
   <div class="widget">
     <h3>Weather in {{(data | async)?.name }},{{ ((data | async)?.sys.country) }}</h3>
-    <h3><img src="{{(data|async)?.weather[0].icon}}" width="50" height="50"/>{{ ((data | async)?.main.temp).toFixed(0) }} </h3>
+    <h3><img src="{{(data | async)?.weather[0].icon}}" width="50" height="50"/>{{ (data | async)?.main.temp }}</h3>
     <h3>{{ (data | async)?.weather[0].main }} ({{ (data | async)?.weather[0].description }})</h3>
     <div class="timeInfo"><h5>{{(data | async)?.dt }} <img src="../../assets/date.png" /></h5></div>
     <table>
@@ -30,7 +30,7 @@
   <div class="widget-right">
   <h2 class="page-title">Weather and forecasts of the current location</h2>
     <mat-tab-group animationDuration="2000ms">
-        <mat-tab label="Hourly"></mat-tab>
+        <mat-tab label="Hourly"><app-hourly-container></app-hourly-container></mat-tab>
         <mat-tab label="Daily">Daily</mat-tab>
         <mat-tab label="Chart">Chart</mat-tab>
         <mat-tab label="Map">Map</mat-tab>
@@ -39,3 +39,4 @@
   </div>
 </div>
 </div>
+

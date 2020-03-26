@@ -4,7 +4,7 @@ import { IAppState } from 'src/app/app.state';
 import { GetCurrentLocationSuccessAction } from '../../store/weather.actions';
 import { Coordinates } from '../../models/Coordinates.model';
 import { Observable } from 'rxjs';
-import { selectWeatherCities, selectWeatherData } from '../../store/weather.selectors';
+import { selectWeatherCities, selectWeatherData, selectErrorStatus } from '../../store/weather.selectors';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -15,11 +15,13 @@ import { map } from 'rxjs/operators';
 export class CurrLocationContainer implements OnInit{
 
   public data$: Observable<any>;
+  public errorStatus$: Observable<boolean>;
   constructor(private store: Store<IAppState>) {
 
   }
   ngOnInit(): void {
     this.data$ = this.store.pipe( map((state) => selectWeatherData(state)));
+    this.errorStatus$ = this.store.pipe( map((state) => selectErrorStatus(state)));
     this.getPosition().then(pos=>
       {
         const location: Coordinates = {
