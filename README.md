@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) &nbsp; [![Codacy Badge](https://api.codacy.com/project/badge/Grade/33befa8d50fc43c78c31492dc432e268)](https://www.codacy.com/manual/sendilkumarmurugaiah/host-app?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sendilkumarmv/host-app&amp;utm_campaign=Badge_Grade)
 
 # Active Branch : CurrentLocation
 Note: Use your own OpenWeather apiid in case of individual needs.
