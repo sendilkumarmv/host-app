@@ -12,14 +12,12 @@ import { ApiService } from '../services/api.service';
 import { City } from '../models/city.model';
 import { of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { OpenWeatherService } from '../services/ow.service';
 
 @Injectable()
 export class WeatherEffects {
 
   constructor(private actions: Actions,
-              private apiService: ApiService,
-              private owApiService: OpenWeatherService) {
+              private apiService: ApiService ) {
 
   }
 

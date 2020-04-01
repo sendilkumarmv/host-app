@@ -21,7 +21,6 @@ import { API_BASE_URL } from './general';
 import { CurrLocationComponent } from './current/component/curr-location.component';
 import { CurrLocationContainer } from './current/container/curr-location.container';
 import { TinyComponent } from './widget/tiny.component';
-import { OpenWeatherService } from './services/ow.service';
 import { HourlyComoponent } from './hourly/component/hourly.component';
 import { HourlyContainer } from './hourly/container/hourly.container';
 
@@ -51,7 +50,6 @@ import { HourlyContainer } from './hourly/container/hourly.container';
 
   providers:[
     ApiService,
-    OpenWeatherService,
     { provide: API_BASE_URL, useValue: 'http://localhost:59377'}
   ]
 })
