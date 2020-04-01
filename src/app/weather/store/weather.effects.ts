@@ -7,11 +7,13 @@ import {
   GetCountriesSuccessAction,
   GeneralErrorAction,
   GetCurrentLocationSuccessAction,
-  GetCurrentLocationWeatherSuccessAction } from './weather.actions';
+  GetCurrentLocationWeatherSuccessAction,
+  GetCurrentLocationAction} from './weather.actions';
 import { ApiService } from '../services/api.service';
 import { City } from '../models/city.model';
 import { of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Coordinates } from '../models/Coordinates.model'
 
 @Injectable()
 export class WeatherEffects {
@@ -54,5 +56,23 @@ export class WeatherEffects {
       )
     })
   )
+
+  @Effect()
+  currentLocation$ = this.actions.pipe(
+    ofType<GetCurrentLocationAction>(WeatherActionTypes.GetCurrentLocation),
+    switchMap( (action) => {
+      return this.apiService.getCurrentLocation().pipe(
+        map( (result) => {
+          console.log(result);
+          return new GetCurrentLocationSuccessAction(result);
+        }),
+        catchError( (error: HttpErrorResponse) => {
+          console.log(error);
+          return of(new GeneralErrorAction(error.statusText))
+        })
+      )
+    })
+  )
+
 
 }

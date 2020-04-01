@@ -49,6 +49,15 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
       }
     }
 
+    case WeatherActionTypes.GetCurrentLocation: {
+      return {
+        ...state,
+        cities: [],
+        isLoading: true,
+        error: ''
+      }
+    }
+
     case WeatherActionTypes.GetCurrentLocationSuccess: {
       return {
         ...state,
