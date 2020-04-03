@@ -1,5 +1,5 @@
 import { City } from './weather/models/city.model';
-import { Coordinates } from './weather/models/Coordinates.model';
+import { LocationCoordinates } from './weather/models/Coordinates.model';
 
 export interface IWeatherState {
   cities : City[];
@@ -8,9 +8,10 @@ export interface IWeatherState {
   error: string;
   data: any;
   errorOccured: boolean;
+  canNavigate: boolean;
 }
 export interface IAppState {
   weatherState: IWeatherState
   isLoading: boolean
-  currentLocation: Coordinates;
+  currentLocation: LocationCoordinates;
 }

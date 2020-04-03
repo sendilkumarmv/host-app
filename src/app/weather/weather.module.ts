@@ -24,7 +24,7 @@ import { TinyComponent } from './widget/tiny.component';
 import { HourlyComoponent } from './hourly/component/hourly.component';
 import { HourlyContainer } from './hourly/container/hourly.container';
 import { RouteGurdService } from './services/route.gurdService';
-import { GeolocationService } from './services/geolocation.service';
+import { LocationService } from './services/geolocation.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,7 @@ import { GeolocationService } from './services/geolocation.service';
     ApiService,
     RouteGurdService,
     { provide: API_BASE_URL, useValue: 'http://localhost:59377'},
-    GeolocationService
+    LocationService
   ]
 })
 export class WeatherModule { }

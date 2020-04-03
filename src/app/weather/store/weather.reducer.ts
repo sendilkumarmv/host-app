@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 
 import { IAppState, IWeatherState } from 'src/app/app.state';
 import { City } from '../models/city.model';
-import { WeatherActionTypes, WeatherActions, GetCountriesAction, GetCountriesSuccessAction } from './weather.actions';
+import { WeatherActionTypes, WeatherActions, GetCitiesSuccessAction, } from './weather.actions';
 
 
 const city : City = {
@@ -21,7 +21,8 @@ const initialWeatherState: IWeatherState = {
   isLoading: false,
   error:'',
   data: null,
-  errorOccured: false
+  errorOccured: false,
+  canNavigate: true
 }
 const initialAppState: IAppState = {
   weatherState: initialWeatherState,
@@ -32,7 +33,7 @@ const initialAppState: IAppState = {
 
 export function WeatherReducer(state: IAppState = initialAppState, action: WeatherActions) {
   switch(action.type) {
-    case WeatherActionTypes.GetCountries: {
+    case WeatherActionTypes.GetCities: {
       return {
         ...state,
         match: action.payLoad,
@@ -40,10 +41,10 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         error: ''
       }
     }
-    case WeatherActionTypes.GetCountriesSuccess: {
+    case WeatherActionTypes.GetCitiesSuccess: {
       return {
         ...state,
-        cities: (action as GetCountriesSuccessAction)?.payLoad,
+        cities: (action as GetCitiesSuccessAction)?.payLoad,
         isLoading: false,
         error: ''
       }
@@ -53,8 +54,10 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
       return {
         ...state,
         cities: [],
-        isLoading: true,
-        error: ''
+        isLoading: action.payLoad,
+        error: '',
+        currentLocation: null,
+        canNavigate: false
       }
     }
 
@@ -64,7 +67,8 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         currentLocation: action.payLoad,
         error: '',
         cities: [],
-        isLoading: false
+        isLoading: false,
+        canNavigate: false
       };
     }
 
@@ -74,7 +78,8 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         error: '',
         cities: [],
         isLoading: false,
-        data: action.payLoad
+        data: action.payLoad,
+        canNavigate: true
       }
     }
 
@@ -84,7 +89,8 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         isLoading: false,
         error: action.payLoad,
         errorOccured: true,
-        cities: []
+        cities: [],
+        canNavigate: false
       }
     }
   }

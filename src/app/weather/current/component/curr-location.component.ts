@@ -1,5 +1,5 @@
 import { OnInit, Component, Input } from '@angular/core';
-import { Coordinates } from '../../models/Coordinates.model';
+import { LocationCoordinates } from '../../models/Coordinates.model';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { IAppState } from 'src/app/app.state';

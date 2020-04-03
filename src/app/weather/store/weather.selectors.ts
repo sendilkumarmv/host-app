@@ -29,3 +29,8 @@ export const selectErrorStatus = createSelector(
   selectFeature,
   (state: IWeatherState) => state?.errorOccured
 )
+
+export const selectCanNavigate = createSelector(
+  selectFeature,
+  (state: IWeatherState) => state?.canNavigate
+)
