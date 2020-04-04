@@ -8,7 +8,7 @@ export interface IWeatherState {
   error: string;
   data: any;
   errorOccured: boolean;
-  canNavigate: boolean;
+  dataLoadedStatus: boolean;
 }
 export interface IAppState {
   weatherState: IWeatherState

@@ -22,7 +22,7 @@ const initialWeatherState: IWeatherState = {
   error:'',
   data: null,
   errorOccured: false,
-  canNavigate: true
+  dataLoadedStatus: false
 }
 const initialAppState: IAppState = {
   weatherState: initialWeatherState,
@@ -56,8 +56,7 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         cities: [],
         isLoading: action.payLoad,
         error: '',
-        currentLocation: null,
-        canNavigate: false
+        currentLocation: null
       }
     }
 
@@ -68,7 +67,7 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         error: '',
         cities: [],
         isLoading: false,
-        canNavigate: false
+        dataLoadedStatus: false
       };
     }
 
@@ -79,7 +78,7 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         cities: [],
         isLoading: false,
         data: action.payLoad,
-        canNavigate: true
+        dataLoadedStatus: true
       }
     }
 
@@ -89,8 +88,7 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         isLoading: false,
         error: action.payLoad,
         errorOccured: true,
-        cities: [],
-        canNavigate: false
+        cities: []
       }
     }
   }

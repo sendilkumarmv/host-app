@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { StoreModule, Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 import { EffectsModule }  from '@ngrx/effects';
 import { CityListComponent } from './city/component/city-list.component';
@@ -25,6 +25,8 @@ import { HourlyComoponent } from './hourly/component/hourly.component';
 import { HourlyContainer } from './hourly/container/hourly.container';
 import { RouteGurdService } from './services/route.gurdService';
 import { LocationService } from './services/geolocation.service';
+import { IAppState } from '../app.state';
+import { GetCurrentLocationAction } from './store/weather.actions';
 
 @NgModule({
   declarations: [
@@ -53,8 +55,18 @@ import { LocationService } from './services/geolocation.service';
   providers:[
     ApiService,
     RouteGurdService,
+    LocationService,
     { provide: API_BASE_URL, useValue: 'http://localhost:59377'},
-    LocationService
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: (store: Store<IAppState>) => {
+    //     return () => {
+    //       store.dispatch(new GetCurrentLocationAction(true));
+    //     };
+    //   },
+    //   multi: true,
+    //   deps: [Store]
+    // }
   ]
 })
 export class WeatherModule { }

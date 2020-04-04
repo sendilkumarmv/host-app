@@ -5,28 +5,33 @@ import {
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { IAppState } from 'src/app/app.state';
-import { Store } from '@ngrx/store';
-import { GetCurrentLocationAction } from '../store/weather.actions';
-import { map, debounceTime } from 'rxjs/operators';
-import { selectCanNavigate } from '../store/weather.selectors';
+import { Store, select } from '@ngrx/store';
 import { OnInit } from '@angular/core';
+import { selectLocationDataLoadedStatus } from '../store/weather.selectors';
+import { tap, filter, first } from 'rxjs/operators';
+import { GetCurrentLocationAction } from '../store/weather.actions';
 
 
 export class RouteGurdService implements CanActivate, OnInit {
 
-  public canNavigate$: Observable<boolean>;
   constructor(private store: Store<IAppState>) {
 
   }
 
   ngOnInit(): void {
-    this.canNavigate$ = this.store.pipe( map((state) => selectCanNavigate(state)));
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    this.store.dispatch(new GetCurrentLocationAction(false));
-    console.log(this.canNavigate$);
-    return this.canNavigate$;
+    return this.store.pipe(
+      select(selectLocationDataLoadedStatus),
+      tap(loaded => {
+        if (!loaded) {
+          this.store.dispatch(new GetCurrentLocationAction(true));
+        }
+      }),
+      filter(loaded => loaded),
+      first()
+    );
   }
 
 }
