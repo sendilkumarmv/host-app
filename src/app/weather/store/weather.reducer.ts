@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 
 import { IAppState, IWeatherState } from 'src/app/app.state';
 import { City } from '../models/city.model';
-import { WeatherActionTypes, WeatherActions, GetCountriesAction, GetCountriesSuccessAction } from './weather.actions';
+import { WeatherActionTypes, WeatherActions, GetCitiesSuccessAction, } from './weather.actions';
 
 
 const city : City = {
@@ -19,7 +19,10 @@ const initialWeatherState: IWeatherState = {
   cities: [city],
   match:'',
   isLoading: false,
-  error:''
+  error:'',
+  data: null,
+  errorOccured: false,
+  dataLoadedStatus: false
 }
 const initialAppState: IAppState = {
   weatherState: initialWeatherState,
@@ -30,7 +33,7 @@ const initialAppState: IAppState = {
 
 export function WeatherReducer(state: IAppState = initialAppState, action: WeatherActions) {
   switch(action.type) {
-    case WeatherActionTypes.GetCountries: {
+    case WeatherActionTypes.GetCities: {
       return {
         ...state,
         match: action.payLoad,
@@ -38,10 +41,10 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         error: ''
       }
     }
-    case WeatherActionTypes.GetCountriesSuccess: {
+    case WeatherActionTypes.GetCitiesSuccess: {
       return {
         ...state,
-        cities: (action as GetCountriesSuccessAction)?.payLoad,
+        cities: (action as GetCitiesSuccessAction)?.payLoad,
         isLoading: false,
         error: ''
       }
@@ -50,11 +53,33 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
     case WeatherActionTypes.GetCurrentLocation: {
       return {
         ...state,
+        cities: [],
+        isLoading: action.payLoad,
+        error: '',
+        currentLocation: null
+      }
+    }
+
+    case WeatherActionTypes.GetCurrentLocationSuccess: {
+      return {
+        ...state,
         currentLocation: action.payLoad,
         error: '',
         cities: [],
-        isLoading: false
+        isLoading: false,
+        dataLoadedStatus: false
       };
+    }
+
+    case WeatherActionTypes.GetCurrentLocationWeatherSuccess: {
+      return {
+        ...state,
+        error: '',
+        cities: [],
+        isLoading: false,
+        data: action.payLoad,
+        dataLoadedStatus: true
+      }
     }
 
     case WeatherActionTypes.GeneralError: {
@@ -62,6 +87,7 @@ export function WeatherReducer(state: IAppState = initialAppState, action: Weath
         ...state,
         isLoading: false,
         error: action.payLoad,
+        errorOccured: true,
         cities: []
       }
     }

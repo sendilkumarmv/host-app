@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IAppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store';
-import { GetCurrentLocationAction } from '../store/weather.actions';
-import { Coordinates } from '../models/Coordinates.model';
+import { GetCurrentLocationSuccessAction } from '../store/weather.actions';
+import { LocationCoordinates } from '../models/Coordinates.model';
 
 @Component({
   selector: 'app-tiny-info',
@@ -18,11 +18,12 @@ export class TinyComponent implements OnInit{
   ngOnInit(): void {
     this.getPosition().then(pos=>
       {
-        const location: Coordinates = {
+        const location: LocationCoordinates = {
           lat: pos.lat,
           lon: pos.lng
         };
-        this.store.dispatch(new GetCurrentLocationAction(location))
+        console.log(location);
+        this.store.dispatch(new GetCurrentLocationSuccessAction(location))
       });
   }
 

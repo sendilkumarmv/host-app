@@ -1,26 +1,50 @@
 import { Action } from '@ngrx/store';
 
 import { City } from '../models/city.model';
-import { Coordinates } from '../models/Coordinates.model';
+import { LocationCoordinates } from '../models/Coordinates.model';
 
 export enum WeatherActionTypes {
-  GetCountries = '[Weather] Get Countries',
-  GetCountriesSuccess = '[Weather] Get Countries Success',
+  GetCities = '[Weather] Get Cities',
+  GetCitiesSuccess = '[Weather] Get Cities Success',
+
   GetCurrentLocation = '[Weather] Get Current Location',
+  GetCurrentLocationSuccess = '[Weather] Get Current Location Success',
+
   GetCurrentLocationWeatherSuccess = '[Weather] Get Current Location Weather Success',
-  GeneralError ="[Weather] General Error"
+
+  GeneralError = "[Weather] General Error"
 }
 
-export class GetCountriesAction implements Action {
-  readonly type: string = WeatherActionTypes.GetCountries;
+export class GetCitiesAction implements Action {
+  readonly type: string = WeatherActionTypes.GetCities;
   constructor(public payLoad: string) {}
 }
 
-export class GetCountriesSuccessAction implements Action {
-  readonly type: string = WeatherActionTypes.GetCountriesSuccess;
+export class GetCitiesSuccessAction implements Action {
+  readonly type: string = WeatherActionTypes.GetCitiesSuccess;
   constructor(public payLoad: City[]) {}
 }
+/* */
 
+export class GetCurrentLocationAction implements Action {
+  readonly type: string = WeatherActionTypes.GetCurrentLocation;
+  constructor(public payLoad: boolean) {
+  }
+}
+
+export class GetCurrentLocationSuccessAction implements Action {
+  readonly type: string = WeatherActionTypes.GetCurrentLocationSuccess;
+  constructor(public payLoad: LocationCoordinates) {
+  }
+}
+/* */
+
+export class GetCurrentLocationWeatherSuccessAction implements Action {
+  readonly type: string = WeatherActionTypes.GetCurrentLocationWeatherSuccess;
+  constructor(public payLoad: any) {
+  }
+}
+/* */
 
 export class GeneralErrorAction implements Action {
   readonly type: string = WeatherActionTypes.GeneralError;
@@ -29,20 +53,10 @@ export class GeneralErrorAction implements Action {
   }
 }
 
-export class GetCurrentLocationAction implements Action {
-  readonly type: string = WeatherActionTypes.GetCurrentLocation;
-  constructor(public payLoad: Coordinates) {
-  }
-}
 
-export class GetCurrentLocationWeatherSuccessAction implements Action {
-  readonly type: string = WeatherActionTypes.GetCurrentLocationWeatherSuccess;
-  constructor(public payLoad: any) {
-  }
-}
-
-export type WeatherActions = GetCountriesAction
-| GetCountriesSuccessAction
+export type WeatherActions = GetCitiesAction
+| GetCitiesSuccessAction
 | GetCurrentLocationAction
+| GetCurrentLocationSuccessAction
 | GetCurrentLocationWeatherSuccessAction
 | GeneralErrorAction ;

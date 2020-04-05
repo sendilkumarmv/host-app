@@ -3,9 +3,9 @@
 <div class="row">
   <div class="widget">
     <h3>Weather in {{(data | async)?.name }},{{ ((data | async)?.sys.country) }}</h3>
-    <h3><img src="{{getIcon((data|async)?.weather[0].icon)}}" width="50" height="50"/>{{ ((data | async)?.main.temp -273).toFixed(0) }} &deg;C </h3>
+    <h3><img src="{{(data | async)?.weather[0].icon}}" width="50" height="50"/>{{ (data | async)?.main.temp }}</h3>
     <h3>{{ (data | async)?.weather[0].main }} ({{ (data | async)?.weather[0].description }})</h3>
-    <div class="timeInfo"><h5>{{ covertToDate((data | async)?.dt) }} <img src="../../assets/date.png" /></h5></div>
+    <div class="timeInfo"><h5>{{(data | async)?.dt }} <img src="../../assets/date.png" /></h5></div>
     <table>
       <tr>
         <tr><td class="widget-caption">Presure</td><td> {{ (data | async)?.main.pressure }} Hpa <img src="../../assets/pressure.png" /></td></tr>
@@ -13,8 +13,8 @@
         <tr><td class="widget-caption">Wind</td><td> {{ (data | async)?.wind.speed }} meter/second <img src="../../assets/windy.png" /></td></tr>
         <tr><td class="widget-caption">Cloudiness</td><td> {{ (data | async)?.clouds.all }}<img src="../../assets/coludiness.png" /></td></tr>
         <tr><td class="widget-caption">Visibility</td><td>{{ (data | async)?.visibility}} meter <img src="../../assets/visibility.png" /></td></tr>
-        <tr><td class="widget-caption">Sunrise</td><td> {{ covertToDate((data | async)?.sys.sunrise, true) }}<img src="../../assets/sunrise.png" /></td></tr>
-        <tr><td class="widget-caption">Sunset</td><td> {{ covertToDate((data | async)?.sys.sunset, true) }}<img src="../../assets/sunset.png" /></td></tr>
+        <tr><td class="widget-caption">Sunrise</td><td> {{ (data | async)?.sys.sunrise }}<img src="../../assets/sunrise.png" /></td></tr>
+        <tr><td class="widget-caption">Sunset</td><td> {{ (data | async)?.sys.sunset }}<img src="../../assets/sunset.png" /></td></tr>
     </table>
     <div>&nbsp;</div>
     <div>
@@ -30,7 +30,7 @@
   <div class="widget-right">
   <h2 class="page-title">Weather and forecasts of the current location</h2>
     <mat-tab-group animationDuration="2000ms">
-        <mat-tab label="Hourly"><app-hourly-info></app-hourly-info></mat-tab>
+        <mat-tab label="Hourly"><app-hourly-container></app-hourly-container></mat-tab>
         <mat-tab label="Daily">Daily</mat-tab>
         <mat-tab label="Chart">Chart</mat-tab>
         <mat-tab label="Map">Map</mat-tab>
@@ -39,3 +39,4 @@
   </div>
 </div>
 </div>
+

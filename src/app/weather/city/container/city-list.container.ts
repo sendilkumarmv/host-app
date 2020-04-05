@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IAppState } from 'src/app/app.state';
 import { Store, select } from '@ngrx/store';
-import { GetCountriesAction } from '../../store/weather.actions';
+import { GetCitiesAction } from '../../store/weather.actions';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import { City } from '../../models/city.model';
@@ -40,7 +40,7 @@ export class CityListContainer implements OnInit {
 
   handleAutoComplete(event) {
     if(event.length >2) {
-      this.store.dispatch(new GetCountriesAction(event));
+      this.store.dispatch(new GetCitiesAction(event));
     }
   }
 

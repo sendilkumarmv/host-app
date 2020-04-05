@@ -1,11 +1,13 @@
 .widget {
   width: 260px;
-  border: 1px solid rgb(86, 119, 119);;
+  border: 1px solid rgb(231, 238, 238);;
+  border-radius: 0pt;
   padding: 0px;
 }
 .widget-right {
   width: 900px;
-  border: 1px solid rgb(86, 119, 119);
+  border: 1px solid rgb(231, 238, 238);
+  border-radius: 0pt;
   padding: 10px;
 }
 .widget-info {
@@ -17,6 +19,7 @@
 }
 .getLocation {
   border: 1px solid lightgray;
+  padding-bottom: 3pt;
   border-right: 0px;
   border-left: 0px;
   height: 150px;
@@ -42,8 +45,9 @@ td.widget-caption {
 tr:nth-child(even) {background-color: whitesmoke}
 tr:nth-child(odd) {background-color: lightyellow}
 .content {
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 25px;
 }
 .page-title {
   font-family: sans-serif;
