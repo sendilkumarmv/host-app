@@ -56,17 +56,7 @@ import { GetCurrentLocationAction } from './store/weather.actions';
     ApiService,
     RouteGurdService,
     LocationService,
-    { provide: API_BASE_URL, useValue: 'http://localhost:59377'},
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: (store: Store<IAppState>) => {
-    //     return () => {
-    //       store.dispatch(new GetCurrentLocationAction(true));
-    //     };
-    //   },
-    //   multi: true,
-    //   deps: [Store]
-    // }
+    { provide: API_BASE_URL, useValue: 'http://localhost:59377'}
   ]
 })
 export class WeatherModule { }

@@ -34,7 +34,7 @@ export class LocationService {
 					},
 					{
 						enableHighAccuracy: true,
-						timeout: 5000,
+						timeout: 1000,
 						maximumAge: 0
 					});
 			}

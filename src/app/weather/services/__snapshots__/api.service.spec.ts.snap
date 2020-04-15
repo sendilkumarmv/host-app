@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Api Service  should return coordinates of the current location: 12 1`] = `"12"`;
+
+exports[`Api Service  should return coordinates of the current location: 77 1`] = `"77"`;

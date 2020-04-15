@@ -9,6 +9,7 @@ export interface IWeatherState {
   data: any;
   errorOccured: boolean;
   dataLoadedStatus: boolean;
+  currentLocation: LocationCoordinates;
 }
 export interface IAppState {
   weatherState: IWeatherState

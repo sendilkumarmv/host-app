@@ -22,16 +22,11 @@ const initialWeatherState: IWeatherState = {
   error:'',
   data: null,
   errorOccured: false,
-  dataLoadedStatus: false
-}
-const initialAppState: IAppState = {
-  weatherState: initialWeatherState,
-  isLoading: false,
-  currentLocation: { lat: '', lon: ''}
+  dataLoadedStatus: false,
+  currentLocation: { lat: '', lon: ''},
 }
 
-
-export function WeatherReducer(state: IAppState = initialAppState, action: WeatherActions) {
+export function WeatherReducer(state: IWeatherState = initialWeatherState, action: WeatherActions) {
   switch(action.type) {
     case WeatherActionTypes.GetCities: {
       return {

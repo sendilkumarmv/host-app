@@ -33,7 +33,6 @@ export class WeatherEffects {
           return new GetCitiesSuccessAction(cities);
         }),
         catchError( (error: HttpErrorResponse) => {
-          console.log(error);
           return of(new GeneralErrorAction(error.statusText))
         })
       )
@@ -46,11 +45,9 @@ export class WeatherEffects {
     switchMap( (action) => {
       return this.apiService.getCurrentLocation().pipe(
         map( (result) => {
-          console.log(result);
           return new GetCurrentLocationSuccessAction(result);
         }),
         catchError( (error: HttpErrorResponse) => {
-          console.log(error);
           return of(new GeneralErrorAction(error.statusText))
         })
       )
@@ -67,7 +64,6 @@ export class WeatherEffects {
             return new GetCurrentLocationWeatherSuccessAction(result);
         }),
         catchError( (error: HttpErrorResponse) => {
-          console.log(error);
           return of(new GeneralErrorAction(error.statusText))
         })
       )
